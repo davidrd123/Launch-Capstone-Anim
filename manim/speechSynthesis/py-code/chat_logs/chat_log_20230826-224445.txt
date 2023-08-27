@@ -1,0 +1,125 @@
+User: 
+        Capstone Project Video Analysis
+As per the transcript provided, the capstone project is about Symphony - an open-source framework developed to assist other developers in creating collaborative web applications, such as Google Docs, Trello, Miro, and Figma, more simplified.
+
+ELI5 Summary
+The project team created a solution called Symphony to make it easier for developers to build applications like Google Docs, where many people can work on the same content without interfering with each other's changes. They have efficiently achieved this using various technologies and tools and demonstrated it with an example of a collaborative whiteboard.
+
+System Design
+The team has employed various technologies and tools to build Symphony, including a variety of AWS services, WebSocket and WebRTC protocols for real-time data transmission, and specific conflict resolution mechanisms such as Operational Transformation (OT) and Conflict-Free Replicated Data Types (CRDT). Here is a brief on their underlying concept:
+
+Real-time Collaboration:
+The concept revolves around enabling multiple users to work together and modify the same content simultaneously. This involves components like a room (group of users collaborating), a docent (shared state being modified), and presence (actions users take in real-time).
+
+Transmission of Real-time Data:
+Transmission of real-time data is done through WebRTC and WebSocket protocol. WebRTC enables peer-to-peer communication, which is apt for video and audio streaming due to its low latency, cost of potential data loss. WebSocket, on the other hand, allows two-way persistent real-time communication between the client and the server ensuring data integrity.
+
+Conflict Resolution:
+The resolution of conflicts arising due to simultaneous changes made by multiple users is achieved using Operational Transformation (OT) and Conflict-Free Replicated Data Types (CRDT). OT transforms operations to apply in any order, and CRDT allows independent modifications to reach a convergent state by applying operations in any order without conflict.
+
+Tools Used
+Below is the list of specific tools used in the project:
+
+Cloud Services:
+AWS Elastic Compute Cloud (EC2)
+AWS Simple Storage Service (S3)
+AWS's Relational Database Service (RDS)
+AWS Elastic Container Service (ECS)
+Amazon Elasticache
+AWS DynamoDB
+Languages:
+Abstract Data Type (for CRDT)
+JavaScript (for Yjs CRDT library)
+WebSocket (Real-time client-server communication)
+Other Technologies:
+Symphony Client Library
+Symphony CLI tool
+Kafka
+RabbitMQ
+WebRTC (Real-time browser to browser communication)
+Redis pub-sub messaging system
+Implementation
+Symphony allows developers to create collaborative web applications by installing a Symphony client and a Symphony CLI tool, writing the app using the provided APIs and data structures, and finally deploying the application. Symphony uses the Yjs CRDT library for conflict resolution and WebSocket for real-time update transmission, and the backend is deployed on various AWS services.
+
+The Whiteboard demo shows how users can see others' presence, represented by moving cursors, and draw on the whiteboard, creating a persistent state in real-time.
+
+Application Architecture
+Symphony's architecture consists of various components, which interact to perform real-time collaboration with conflict resolution:
+
+Symphony client: The client-side component where users perform collaborative tasks.
+Symphony CLI tool: A command-line tool for creating and managing Symphony applications.
+WebSocket: Provides real-time communication between client-side Symphony applications and the Symphony server.
+Redis: An in-memory data structure store used as a database, cache, and message broker.
+CRDT: An algorithm used to handle the conflict between simultaneous changes made by multiple users.
+Amazon Web Services (AWS): A platform that provides a variety of cloud-based services to power the application.
+Live Blocks/ Fluid Framework: Tools or frameworks for building real-time collaborative applications.
+Scaling
+The Symphony application is designed for scalability, allowing it to serve a large number of users and applications simultaneously. The application makes use of AWS's Elastic Container Service (ECS) for scalability. With the help of Redis pub-sub messaging system, Symphony achieves horizontal scaling, allowing multiple WebSocket servers to handle a high number of connections.
+
+Future Plans
+The team has identified areas for future improvements including – eliminating duplicate states in a single room across multiple servers and optimizing CPU and memory utilization by assigning one process per room.
+
+Conclusion
+Symphony is an innovative, open-source solution aimed at simplifying the development of collaborative web applications by abstracting away the complexities involved in real-time infrastructure and conflict resolution. With the use of different technologies that complement each other in this architecture, Symphony provides a scalable solution for developers to build engaging and interactive applications.
+    
+Assistant: Well, well, well, it seems like the team behind Symphony has really put some thought into creating a collaborative web application framework. Let's dive into the nitty-gritty and see what makes Symphony tick.
+
+Real-time collaboration is the name of the game here. Symphony allows multiple users to work together and modify the same content simultaneously. They've got this concept of rooms, where users can collaborate, and a docent, which is the shared state being modified. And of course, they've got presence, which tracks the actions users take in real-time. It's like a virtual playground where everyone can play nice together.
+
+To make all this real-time magic happen, they're using some fancy technologies. They've got WebRTC and WebSocket protocols for transmitting real-time data. WebRTC is great for peer-to-peer communication, which is perfect for streaming video and audio with low latency. And WebSocket allows for two-way persistent real-time communication between the client and the server, ensuring data integrity. It's like having a direct line of communication between the users and the server.
+
+Now, let's talk about conflict resolution. When you have multiple users making changes at the same time, conflicts are bound to happen. But fear not, Symphony has got your back. They're using Operational Transformation (OT) and Conflict-Free Replicated Data Types (CRDT) to handle these conflicts. OT transforms operations to apply in any order, while CRDT allows independent modifications to reach a convergent state without conflicts. It's like having a referee on the playground making sure everyone plays fair.
+
+In terms of tools, they've got a whole arsenal at their disposal. They're using AWS services like EC2, S3, RDS, ECS, and DynamoDB to power their backend. They've also got their own Symphony Client Library and Symphony CLI tool to make life easier for developers. And they're using Kafka, RabbitMQ, and Redis pub-sub messaging system to handle messaging and real-time updates. It's like having a toolbox full of shiny tools to build your masterpiece.
+
+When it comes to implementation, developers can create collaborative web applications by installing the Symphony client and CLI tool, writing the app using the provided APIs and data structures, and deploying the application. They're using the Yjs CRDT library for conflict resolution and WebSocket for real-time updates. And of course, everything is running on AWS services for scalability and reliability.
+
+Speaking of scalability, Symphony has got it covered. They're using AWS ECS for scalability, allowing them to serve a large number of users and applications simultaneously. And with the help of Redis pub-sub messaging system, they can achieve horizontal scaling, distributing the load across multiple WebSocket servers. It's like having an army of servers ready to handle any number of users.
+
+For future plans, the team is looking to eliminate duplicate states in a single room across multiple servers and optimize CPU and memory utilization by assigning one process per room. It's like fine-tuning their masterpiece to make it even better.
+
+In conclusion, Symphony is a powerful and innovative open-source solution for building collaborative web applications. It takes care of the complexities of real-time infrastructure and conflict resolution, allowing developers to focus on creating engaging and interactive applications. So grab your conductor's baton and start composing your masterpiece with Symphony.
+User: System Design and Technologies
+Assistant: Ah, now we're getting into the juicy details of system design and technologies used in Symphony. Let's break it down, shall we?
+
+System Design:
+Symphony's system design revolves around enabling real-time collaboration and conflict resolution in collaborative web applications. Here are the key components:
+
+1. Symphony Client: This is the client-side component where users perform collaborative tasks. It interacts with the Symphony server to send and receive real-time updates.
+
+2. Symphony CLI Tool: A command-line tool that helps developers create and manage Symphony applications. It provides a convenient interface for setting up and deploying applications.
+
+3. WebSocket: WebSocket is the technology used for real-time communication between client-side Symphony applications and the Symphony server. It allows bidirectional and persistent communication, ensuring that updates are delivered in real-time.
+
+4. Redis: Redis is an in-memory data structure store used as a database, cache, and message broker in Symphony. It helps with efficient data storage and retrieval, as well as facilitating real-time messaging between components.
+
+5. CRDT (Conflict-Free Replicated Data Types): CRDT is an algorithm used to handle conflicts that may arise when multiple users make simultaneous changes to shared content. It ensures that independent modifications can be merged into a convergent state without conflicts.
+
+6. Amazon Web Services (AWS): Symphony utilizes various AWS services for its backend infrastructure. These include Elastic Compute Cloud (EC2) for scalable computing resources, Simple Storage Service (S3) for storing files and data, Relational Database Service (RDS) for managing databases, Elastic Container Service (ECS) for scalable containerized applications, and DynamoDB for fast and scalable NoSQL database storage.
+
+Technologies Used:
+In addition to the system design components, Symphony leverages several technologies to enable real-time collaboration and conflict resolution. Here are the key ones:
+
+1. WebRTC (Web Real-Time Communication): WebRTC is a technology used for real-time browser-to-browser communication. It allows for peer-to-peer audio and video streaming with low latency, making it suitable for applications like Symphony that require real-time updates.
+
+2. Yjs CRDT Library: Symphony uses the Yjs CRDT library for conflict resolution. CRDTs are data structures that allow for independent modifications to converge into a consistent state. Yjs provides the necessary tools and APIs to handle conflicts and ensure data consistency in collaborative applications.
+
+3. Kafka: Kafka is a distributed streaming platform used for building real-time data pipelines and streaming applications. It enables Symphony to handle large volumes of real-time data and efficiently process and distribute updates across multiple components.
+
+4. RabbitMQ: RabbitMQ is an open-source message broker that facilitates the exchange of messages between components in Symphony. It ensures reliable and asynchronous communication, allowing components to communicate and coordinate their actions effectively.
+
+These technologies and system design components work together to create a robust and scalable infrastructure for real-time collaboration in Symphony. So, put on your tech wizard hat and start building your own collaborative web applications with Symphony's powerful toolkit.
+User: Future Plans
+Assistant: Ah, the future plans of Symphony. Let's take a peek into what the team has in store for their innovative framework.
+
+The team behind Symphony has identified a couple of areas for future improvements. Here's what they have in mind:
+
+1. Eliminating duplicate states in a single room across multiple servers: Currently, when multiple servers are handling a single room in Symphony, there may be instances where duplicate states of the room exist. The team aims to refine this aspect and ensure that there are no redundant states, optimizing the efficiency of the system. It's like tidying up the room and removing any unnecessary clutter.
+
+2. Optimizing CPU and memory utilization by assigning one process per room: The team plans to fine-tune the resource allocation within Symphony by assigning one process per room. This optimization will help maximize the utilization of CPU and memory resources, making the overall system more efficient. It's like assigning a dedicated caretaker to each room to ensure everything runs smoothly.
+
+By focusing on these areas, the team aims to enhance the performance and efficiency of Symphony, making it an even more powerful and streamlined framework for building collaborative web applications. It's like giving Symphony a makeover, making it shine brighter than ever.
+
+Of course, the future is always full of surprises, and the team might have more plans up their sleeves. But for now, these improvements will surely take Symphony to the next level.
+
+So, if you're excited about the possibilities of collaborative web applications, keep an eye on Symphony's future updates. Who knows what other exciting features and optimizations they might bring to the table? The future looks bright for Symphony, and I can't wait to see what they have in store.

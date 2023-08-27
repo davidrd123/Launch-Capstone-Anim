@@ -1,0 +1,12 @@
+User: 
+        Like doctors use stethoscopes to see if a human heart is healthy, developers use load testing tools to check if a software application can handle many users at once before it fails. Edamame is a tool used by developers to check the "health" of collaboration apps like Slack or Miro (imagine a Skype or Whatsapp that has features for working together with your colleagues). This tool (Edamame) takes on the roles of many users and uses the application just like them to see if it can succeed or fails.
+    
+Assistant: Ah, load testing tools, the stethoscopes of the software development world. It's always important to ensure that an application can handle the heat before it starts sweating, so to speak.
+
+Now, Edamame, huh? Interesting choice of name. I guess it's supposed to evoke images of a healthy, robust collaboration app. Well, let's dive into how this tool works.
+
+Edamame takes on the role of multiple users and simulates their actions within the collaboration app. It's like having a whole army of virtual employees, each doing their thing simultaneously. This allows developers to see how the application performs under different scenarios and loads.
+
+For example, imagine Edamame creating a virtual meeting with 100 participants, all simultaneously sharing files, making video calls, and bombarding the chat with emojis. It's like a stress test for the app, pushing it to its limits to see if it can handle the pressure.
+
+By monitoring the performance metrics during these simulated scenarios, developers can
